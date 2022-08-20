@@ -7,7 +7,7 @@ import {
 	useVideoConfig,
 	VideoConfig,
 } from 'remotion';
-import { ensureFont } from './ensure-font';
+//import { ensureFont } from './ensure-font';
 
 const useWindowedFrameSubs = (
 	src: string,
@@ -75,7 +75,9 @@ export const Subtitles: React.FC<{
 };
 
 const ZOOM_MEASURER_SIZE = 10;
-export const LINE_HEIGHT = 98;
+const FONT_SIZE = 128;
+const LINE_PADDING = 13;
+export const LINE_HEIGHT = FONT_SIZE + LINE_PADDING;
 
 export const PaginatedSubtitles: React.FC<{
 	src: string;
@@ -114,9 +116,9 @@ export const PaginatedSubtitles: React.FC<{
 		.find((item) => item.start < frame);
 
 	useEffect(() => {
-		if (!fontLoaded) {
-			return;
-		}
+		// if (!fontLoaded) {
+		// 	return;
+		// }
 		const zoom =
 			(zoomMeasurer.current?.getBoundingClientRect().height as number) /
 			ZOOM_MEASURER_SIZE;
@@ -128,12 +130,12 @@ export const PaginatedSubtitles: React.FC<{
 		continueRender(handle);
 	}, [fontLoaded, frame, handle, linesPerPage]);
 
-	useEffect(() => {
-		ensureFont().then(() => {
-			continueRender(fontHandle);
-			setFontLoaded(true);
-		});
-	}, [fontHandle, fontLoaded]);
+	// useEffect(() => {
+	// 	ensureFont().then(() => {
+	// 		continueRender(fontHandle);
+	// 		setFontLoaded(true);
+	// 	});
+	// }, [fontHandle, fontLoaded]);
 
 	const lineSubs = (() => {
 		const finalLines: SubtitleItem[][] = [];
@@ -162,6 +164,7 @@ export const PaginatedSubtitles: React.FC<{
 			style={{
 				position: 'relative',
 				overflow: 'hidden',
+				fontSize: `${FONT_SIZE}px`,
 			}}
 		>
 			<div
