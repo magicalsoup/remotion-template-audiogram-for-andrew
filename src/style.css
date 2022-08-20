@@ -7,7 +7,7 @@
 	sans-serif,
 	'Apple Color Emoji',
 	'Segoe UI Emoji'; */
-	--maintext-font: 'Neutral Face';
+	--maintext-font: 'Inter', sans-serif;
 	--title-font: 'Inter', sans-serif;
 	--title-size: 48px;
 	--subtitle-size: 40px;
@@ -24,10 +24,11 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	justify-content: space-around;
 	width: 100%;
 	height: 100%;
 	background: white;
-	padding: 16rem 6rem 16rem 6rem;
+	padding: 118px 6rem 16rem 118px;
 
 }
 
@@ -70,10 +71,8 @@
 
 /*font size is custom set in subtitles.tsx*/
 .captions {
-	margin-top: 16rem;
 	/* font-size: calc(var(--base-size) * 1.5); */
-	padding-left: 4rem;
-	padding-right: 4rem;
+	align-self: space-around;
 	font-weight: 400;
 	font-family: var(--maintext-font);
 }
@@ -102,9 +101,9 @@
 
 .tagline {
 	position: absolute;
+	align-self: center;
 	display: flex;
-	bottom: 16rem;
-	left: 12rem;
+	bottom: calc(100%/6);
 	font-family: var(--title-font);
 }
 

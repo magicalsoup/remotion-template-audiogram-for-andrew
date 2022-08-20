@@ -76,7 +76,7 @@ export const Subtitles: React.FC<{
 
 const ZOOM_MEASURER_SIZE = 10;
 const FONT_SIZE = 128;
-const LINE_PADDING = 13;
+const LINE_PADDING = 14;
 export const LINE_HEIGHT = FONT_SIZE + LINE_PADDING;
 
 export const PaginatedSubtitles: React.FC<{
